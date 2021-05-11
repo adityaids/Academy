@@ -1,8 +1,23 @@
 package com.aditya.academy.ui.bookmark
 
 import junit.framework.TestCase
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Before
+import org.junit.Test
 
-class BookmarkViewModelTest : TestCase() {
+class BookmarkViewModelTest {
+    private lateinit var viewModel: BookmarkViewModel
 
-    fun testGetBookmarks() {}
+    @Before
+    fun setUp() {
+        viewModel = BookmarkViewModel()
+    }
+
+    @Test
+    fun getBookmark() {
+        val courseEntities = viewModel.getBookmarks()
+        assertNotNull(courseEntities)
+        assertEquals(5, courseEntities.size)
+    }
 }
